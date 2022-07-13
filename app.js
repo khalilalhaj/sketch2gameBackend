@@ -6,6 +6,6 @@ app.get("/", (req, res) => {
   res.send("Fuck You Ezekiel");
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`app listening on port ${port}`);
 });
