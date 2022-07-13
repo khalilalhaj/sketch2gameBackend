@@ -1,0 +1,23 @@
+{
+  "name": "sketch2gameBackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khalilalhaj/sketch2gameBackend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khalilalhaj/sketch2gameBackend/issues"
+  },
+  "homepage": "https://github.com/khalilalhaj/sketch2gameBackend#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
