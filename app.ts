@@ -1,5 +1,6 @@
-import express from "express";
-import bodyParser from "body-parser";
+import express, { Express, Request, Response } from "express";
+
+import * as bodyParser from "body-parser";
 import { initializeApp } from "firebase/app";
 import {
   getFirestore,
@@ -8,7 +9,7 @@ import {
   addDoc,
 } from "firebase/firestore/lite";
 
-const app = express();
+const app: Express = express();
 const port = 3000;
 
 const firebaseConfig = {
@@ -22,22 +23,23 @@ const firebaseConfig = {
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
+
 const db = getFirestore(firebaseApp);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   res.json("Message sent");
 });
 
-app.get("/levels", async (req, res) => {
+app.get("/levels", async (req: Request, res: Response) => {
   const snapshot = await getDocs(collection(db, "levels"));
   const cityList = snapshot.docs.map((doc) => doc.data());
   res.send(cityList);
 });
 
-app.post("/postLevel", async (req, res) => {
+app.post("/postLevel", async (req: Request, res: Response) => {
   try {
     const { id } = await addDoc(collection(db, "levels"), req.body);
     return res.send(id);
